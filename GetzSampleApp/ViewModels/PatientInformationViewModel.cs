@@ -50,6 +50,7 @@ namespace GetzSampleApp.ViewModels
             LblListText = AppString.ListViewInstructions;
 
             //PopulateListAsync();
+            dataSync.GetAllPatients();
 
             MessagingCenter.Subscribe<object, Patient>(this, "Query", (sender, patient) => {           
                 bool willAdd = true;
@@ -73,8 +74,6 @@ namespace GetzSampleApp.ViewModels
                 PatientList.Add(obj);
                 dataSync.AddPatient(obj);
             }
-
-            dataSync.GetAllPatients();
 
             InstructionVisibility = PatientList.Count > 0;
         }

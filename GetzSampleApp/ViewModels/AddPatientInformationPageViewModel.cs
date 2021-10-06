@@ -16,6 +16,7 @@ namespace GetzSampleApp.ViewModels
         DateTime maxdob = new DateTime();
         DateTime seldob = new DateTime();
         Boolean boolIsAdd;
+        Boolean notBoolIsAdd;
         string btnText = string.Empty;
         string btnTextDelete = string.Empty;
         string pageTitle = string.Empty;
@@ -28,6 +29,11 @@ namespace GetzSampleApp.ViewModels
         {
             get { return boolIsAdd; }
             set { SetProperty(ref boolIsAdd, value); }
+        }
+        public Boolean NotEnableUpdateDelete
+        {
+            get { return notBoolIsAdd; }
+            set { SetProperty(ref notBoolIsAdd, value); }
         }
         public DateTime SelDob
         {
@@ -58,6 +64,7 @@ namespace GetzSampleApp.ViewModels
 
         public AddPatientInformationPageViewModel(Boolean IsAdd, Object obj) {
             EnableUpdateDelete = !IsAdd;
+            NotEnableUpdateDelete = IsAdd;
 
             PlaceholderId = AppString.PlaceholderId;
             PlaceholderFirstName = AppString.PlaceholderFirstName;

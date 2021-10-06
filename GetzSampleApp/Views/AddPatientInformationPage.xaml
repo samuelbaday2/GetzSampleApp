@@ -26,7 +26,7 @@
                         <RowDefinition Height="20*"/>
                     </Grid.RowDefinitions>
 
-                    <Entry Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Placeholder="{Binding PlaceholderId}" Text="{Binding Patients.PatientId,Mode=TwoWay}"/>
+                    <Entry Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Placeholder="{Binding PlaceholderId}" Text="{Binding Patients.PatientId,Mode=TwoWay}" IsEnabled="{Binding NotEnableUpdateDelete}"/>
                     <Entry Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Keyboard="Plain" Placeholder="{Binding PlaceholderFirstName}" Text="{Binding Patients.PatientFirstName,Mode=TwoWay}"/>
                     <Entry Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Keyboard="Plain" Placeholder="{Binding PlaceholderLastName}" Text="{Binding Patients.PatientLastName,Mode=TwoWay}"/>
 

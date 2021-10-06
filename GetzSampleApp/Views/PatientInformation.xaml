@@ -8,8 +8,8 @@
         <StackLayout  VerticalOptions="FillAndExpand" Padding="16">
             <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="10*"/>
-                    <RowDefinition Height="90*"/>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="92*"/>
                 </Grid.RowDefinitions>
 
                 <Button x:Name="BtnAddNew" Grid.Row="0" Text="{Binding BtnAddPatientText}" BackgroundColor="{Binding BtnAddPatientColor}" Clicked="BtnAddNew_Clicked"/>
