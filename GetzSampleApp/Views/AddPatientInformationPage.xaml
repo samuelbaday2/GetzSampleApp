@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GetzSampleApp.Views.AddPatientInformationPage"
+             Visual="Material"
+             Title="{Binding PageTitle}">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" Padding="16">
+            <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60*"/>
+                    <RowDefinition Height="40*"/>
+                </Grid.RowDefinitions>
+
+                <!--Patient Data Input-->
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="35*"/>
+                        <ColumnDefinition Width="65*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="20*"/>
+                    </Grid.RowDefinitions>
+
+                    <Entry Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Placeholder="{Binding PlaceholderId}" Text="{Binding Patients.PatientId,Mode=TwoWay}"/>
+                    <Entry Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Keyboard="Plain" Placeholder="{Binding PlaceholderFirstName}" Text="{Binding Patients.PatientFirstName,Mode=TwoWay}"/>
+                    <Entry Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Keyboard="Plain" Placeholder="{Binding PlaceholderLastName}" Text="{Binding Patients.PatientLastName,Mode=TwoWay}"/>
+
+                    <Label Grid.Column="0" Grid.Row="3" Text="{Binding LblDob}" VerticalOptions="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium"/>
+                    <DatePicker Grid.Column="1" Grid.Row="3" Date="{Binding SelDob,Mode=TwoWay}" MaximumDate="{Binding MaxDob}"/>
+
+                    <Label Grid.Column="0" Grid.Row="4" Text="{Binding LblGender}" VerticalOptions="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium"/>
+                    <Picker  Grid.Column="1" Grid.Row="4" SelectedIndex="0" SelectedItem="{Binding Patients.PatientGender}">
+                        <Picker.Items>
+                            <x:String>Male</x:String>
+                            <x:String>Female</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    
+                </Grid>
+                
+                <!--Button-->
+                <Grid Grid.Row="1">
+                    <Grid VerticalOptions="End" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50*"/>
+                            <RowDefinition Height="50*"/>
+                        </Grid.RowDefinitions>
+
+                        <Button x:Name="BtnDel" Grid.Row="0" HeightRequest="65" Text="{Binding BtnDelPatientText}" IsVisible="{Binding EnableUpdateDelete}" Clicked="BtnDel_Clicked" BackgroundColor="{Binding BtnDelete}"/>
+                        <Button x:Name="BtnSave" Grid.Row="1" BackgroundColor="{Binding BtnAddPatientColor}" Text="{Binding BtnAddPatientText}" Clicked="BtnSave_Clicked" HeightRequest="65"/>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

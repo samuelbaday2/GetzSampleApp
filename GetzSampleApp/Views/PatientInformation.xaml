@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GetzSampleApp.Views.PatientInformation"
+             Visual="Material"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <StackLayout  VerticalOptions="FillAndExpand" Padding="16">
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="90*"/>
+                </Grid.RowDefinitions>
+
+                <Button x:Name="BtnAddNew" Grid.Row="0" Text="{Binding BtnAddPatientText}" BackgroundColor="{Binding BtnAddPatientColor}" Clicked="BtnAddNew_Clicked"/>
+
+                <StackLayout Grid.Row="1" VerticalOptions="FillAndExpand" Orientation="Vertical">
+                    <Label HorizontalOptions="Center" HorizontalTextAlignment="Center" Text="{Binding LblListText}" IsVisible="{Binding InstructionVisibility}"/>
+                    <ListView x:Name="ListView" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" ItemSelected="ListView_ItemSelected" ItemsSource="{Binding PatientList}" HasUnevenRows="True" SeparatorVisibility="Default" SeparatorColor="{Binding BtnAddPatientColor}" VerticalScrollBarVisibility="Always">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.ContextActions>
+                                        <!--<MenuItem Text="Delete Item" Clicked="MenuItem_Delete" CommandParameter="{Binding .}">
+                                    </MenuItem>-->
+                                    </ViewCell.ContextActions>
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout Orientation="Vertical" Grid.Column="0">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="ID: " FontAttributes="Bold" FontSize="Medium"/>
+                                                <Label Text="{Binding PatientId}" FontSize="Medium"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Firstname: " FontAttributes="Bold" FontSize="Medium"/>
+                                                <Label Text="{Binding PatientFirstName}" FontSize="Medium"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="LastName: " FontAttributes="Bold" FontSize="Medium"/>
+                                                <Label Text="{Binding PatientLastName}" FontSize="Medium"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="DoB: " FontAttributes="Bold" FontSize="Medium"/>
+                                                <Label Text="{Binding PatientBirthday}" FontSize="Medium"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Gender: " FontAttributes="Bold" FontSize="Medium"/>
+                                                <Label Text="{Binding PatientGender}" FontSize="Medium"/>
+                                            </StackLayout>
+
+                                        </StackLayout>
+                                        <BoxView HeightRequest="6"/>
+                                    </StackLayout>
+                                    
+                                    
+                                </ViewCell>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                    </ListView>
+                </StackLayout>
+               
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
